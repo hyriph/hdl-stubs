@@ -1,0 +1,131 @@
+# coding: utf8
+# title: Add Blacktoon.com
+# author: STR.HK
+# comment: Updated at 12022/04/10
+from numpy import insert
+from utils import Soup, LazyUrl, Downloader, Session, clean_title
+import clf2
+import json
+
+
+class Image(object):
+    def __init__(self, src, title, p):
+        ext = ".{}".format(src.split(".")[-1])
+        if ext.lower()[1:] not in ["jpg", "jpeg", "bmp", "png", "gif", "webm", "webp"]:
+            ext = ".jpg"
+        self.filename = "{}/{:04}{}".format(title, p, ext)
+        self.url = LazyUrl(src, lambda _: src, self)
+
+
+@Downloader.register
+class Downloader_Blacktoon(Downloader):
+    type = "blacktoon"
+    URLS = [r"regex:blacktoon[0-9]*\.com"]
+    icon = "https://blacktoon.net/favicon-red.ico"
+
+    @try_n(8)
+    def read(self):
+        self.version = "4"
+        self.print_("BlacktoonDL version {}".format(self.version))
+
+        self.siteMainURL = "https://{}".format(self.url.split("//")[-1].split("/")[0])
+        self.toonNumber = self.url.split("/")[-1].split(".")[0]
+
+        self.title = "{} - Loading Webtoon List...".format(self.url)
+        session = Session()
+        res = clf2.solve(self.url, session=session)
+        soup = Soup(res["html"], apply_css=True)
+
+        self.artist = get_artist(soup)
+        self.__title = get_title(soup)
+
+        scripts = soup.find_all("script")
+        toonlist_script = None
+        for script in scripts:
+            if "toonlist" in str(script):
+                if script.get("src"):
+                    toonlist_script = script.get("src")
+
+        if not toonlist_script:
+            raise Exception("Toonlist Script not found")
+        scriptURL = self.siteMainURL + str(toonlist_script)
+        self.title = "{} - Reading Webtoon List...".format(self.url)
+        self._list = get_list(scriptURL, session)
+        last = len(self._list)
+
+        for n, item in enumerate(self._list):
+            self.title = "[{}] {} / {} ( {} / {} ) - Reading...".format(
+                self.artist, self.__title, item["t"], n + 1, last
+            )
+            self.print_(
+                "[{}] {} / {} ( {} / {} ) ".format(
+                    self.artist, self.__title, item["t"], n + 1, last
+                )
+            )
+
+            for img in self.get_page_imgs(od=item["od"], count=n):
+                self.urls.append(img.url)
+        self.title = "[{}] {}".format(self.artist, self.__title)
+        self.title = clean_title(self.title)
+        log("Blacktoon_Downloader: Successfully Downloaded {}".format(self.title))
+
+    @try_n(4)
+    def get_page_imgs(self, od, count):
+        _img_per2, _img_per3 = 50, 30
+        _img_domain = "https://blackmanaimg.com/"
+        _img_domain2 = "https://img.blackmanaimg.com/"
+        _img_domain3 = "https://image.blackmanaimg.com/"
+
+        _use_domain = None
+
+        if od % 100 < _img_per2:
+            _use_domain = _img_domain2
+        elif od % 100 < _img_per2 + _img_per3:
+            _use_domain = _img_domain3
+        else:
+            _use_domain = _img_domain
+
+        self.print_(f"{self.siteMainURL}/webtoons/{self.toonNumber}/{od}.html")
+        page = clf2.solve(f"{self.siteMainURL}/webtoons/{self.toonNumber}/{od}.html")
+        soup = Soup(page["html"], apply_css=True)
+        toon_content_imgs = soup.find("div", {"id": "toon_content_imgs"})
+        return_list = []
+
+        if toon_content_imgs:
+            imgs = toon_content_imgs.find_all("img")
+        else:
+            raise Exception("Toon Content Imgs not found")
+        for n, img in enumerate(imgs):
+            img = Image(
+                _use_domain + img["o_src"],
+                "[{}] {}".format(
+                    str(self.artist),
+                    clean_title(str(self._list[count]["t"])),
+                ),
+                n + 1,
+            )
+            return_list.append(img)
+
+        return return_list
+
+
+def get_list(scriptURL, session):
+    res = clf2.solve(scriptURL, session=session)
+    absolute = Soup(res["html"]).get_text().replace("var clist = ", "").replace(";", "")
+    _list = json.loads(absolute)
+    return _list
+
+
+def get_title(soup) -> str:
+    content = soup.find("h3", class_="mt-2")
+    title = content.find("b").text.strip()
+    return str(title)
+
+
+def get_artist(soup) -> str:
+    content = soup.find("p", class_="mt-2")
+    artist = content.text.strip().split(":")[-1].replace(" ", "")
+    return str(artist)
+
+
+log("{}: blacktoon".format(tr_("Site Added")))
