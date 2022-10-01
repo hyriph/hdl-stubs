@@ -1,0 +1,24 @@
+import constants
+
+
+def foo():
+    f = open("links.txt", "r", encoding="utf-8")
+    r = f.read()
+    s = r.split("\n")
+    for l in s:
+        ui.edit.setText(l)
+        ui.downButton.click()
+
+
+ficon = QtGui.QIcon()
+ficon.addPixmap(
+    QtGui.QPixmap("imgs/icons/disk.png"),
+    QtGui.QIcon.Normal,
+    QtGui.QIcon.Off,
+)
+ui.action_fread = QtGui.QAction(constants.mainWindow)
+ui.action_fread.setIcon(ficon)
+ui.action_fread.setObjectName("action_fread")
+ui.action_fread.triggered.connect(foo)
+ui.action_fread.setText("Read links.txt")
+ui.menu_2.addAction(ui.action_fread)
