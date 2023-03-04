@@ -1,0 +1,47 @@
+#coding: utf8
+#title: Add www.hentaishark.com
+#author: STR.HK
+#comment: Please report the bug in Discord Server
+
+import downloader
+from utils import (Soup, Downloader)
+from translator import tr_
+
+@Downloader.register
+class Downloader_Hentaishark(Downloader):
+    type = 'hentaishark'
+    URLS = ['www.hentaishark.com']
+    icon = 'https://www.hentaishark.com/uploads/favicon.png'
+
+    def read(self):
+        html = downloader.read_html(self.url)
+        soup = Soup(html)
+
+        # 상세 제목 가져옴
+        title = soup.find('h3', class_='widget-title').get_text()
+
+        # 상세 제목 없을 경우 일반 제목 가져옴
+        if (title == 'Gallery'):
+            title = soup.find('h2', class_='widget-title').get_text()
+        self.title = '{} - Reading Image...'.format(title)
+
+        # 이미지 개수 가져옴
+        count = len(soup.find_all('div', class_='page-indicator'))
+
+        # Url에서 식별번호/단어 추출
+        urlcode = list(filter(None, self.url.split('/')))[-1]
+
+        # 뷰어 Url 하나 생성
+        durl = 'https://www.hentaishark.com/manga/{}/1/1'.format(urlcode)
+
+        html2 = downloader.read_html(durl)
+        soup2 = Soup(html2)
+
+        # 뷰어 Url로 다이렉트 이미지 링크 가져온 후 0의 개수를 셈
+        zero = list(filter(None, soup2.find('div', {'id':'ppp'}).find('img')['src'].strip().split('/')))[-1].replace('.jpg','').count('0') + 1
+
+        for c in range(1, count + 1):
+            # 0의 개수로 url 생성 후 리스트에 삽입
+            self.urls.append('https://www.hentaishark.com/uploads/manga/{}/chapters/1/{}.jpg'.format(urlcode, str(c).zfill(zero)))
+
+        self.title = title
