@@ -70,7 +70,7 @@ class Downloader_Booktoki(Downloader):
             full_content += "\n\n"
             full_content += contents[n]
             full_content += "\n\n\n"
-        full_content += "完"
+        full_content += "終"
 
         f = BytesIO()
         f.write(full_content.encode("UTF-8"))
