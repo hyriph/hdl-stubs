@@ -1,7 +1,7 @@
 # coding: utf8
 # title: Add Booktoki.com
 # author: github.com/STR-HK/hdl-stubs
-# comment: Created at 12022/12/10
+# comment: Created at 2023/10/23
 
 from io import BytesIO
 from utils import Soup, LazyUrl, Downloader, clean_title
@@ -9,6 +9,7 @@ import clf2
 
 
 class Image(object):
+
     def __init__(self, src, name):
         ext = ".{}".format(src.split(".")[-1])
         if ext.lower()[1:] not in ["jpg", "jpeg", "bmp", "png", "gif", "webm", "webp"]:
@@ -22,7 +23,7 @@ class Downloader_Booktoki(Downloader):
     type = "booktoki"
     URLS = [r"regex:booktoki[0-9]*\.com"]
     MAX_CORE = 4
-    icon = "https://booktoki153.com/img/book/favicon-32x32.png"
+    icon = "https://booktoki.com/img/book/favicon-32x32.png"
 
     def read(self):
         soup = get_soup(self.url)
@@ -95,10 +96,10 @@ class Downloader_Booktoki(Downloader):
         ]
 
     def get_title(self, soup: Soup):
-        return self.get_info_list(soup)[0]
+        return clean_title(self.get_info_list(soup)[0])
 
     def get_artist(self, soup: Soup):
-        return self.get_info_list(soup)[1][2]
+        return clean_title(self.get_info_list(soup)[1][2])
 
 
 def get_soup(url: str):
