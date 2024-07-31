@@ -1,5 +1,5 @@
 # hdl-subs
-[English](https://github.com/STR-HK/hdl-stubs) | [Korean](https://github.com/STR-HK/hdl-stubs/blob/main/%EB%82%98%EB%A5%BC%EC%9D%BD%EC%96%B4.md)
+[English](https://github.com/STR-HK/hdl-stubs) | [한국어](https://github.com/STR-HK/hdl-stubs/blob/main/%EB%82%98%EB%A5%BC%EC%9D%BD%EC%96%B4.md)
 Obtain whatever tool-for-hdl you need!
 
 ### site:hentaishark
