@@ -1,5 +1,4 @@
 # hdl-subs
-We welcome new feature additions and suggestions!
 Obtain whatever sub-for-hdl you need from here!
 
 ### site:hentaishark
