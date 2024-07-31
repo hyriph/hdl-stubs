@@ -1,3 +1,27 @@
+"""
+이 스크립트는 더 이상 기능하지 않습니다.
+https://github.com/STR-HK/hdl-stubs/ 에서 최신 버전의 스크립트를 다운로드하세요.
+
+This script is no longer functional.
+Please download the latest version of the script from https://github.com/STR-HK/hdl-stubs/
+
+このスクリプトはもう機能しません。
+最新バージョンのスクリプトを https://github.com/STR-HK/hdl-stubs/ からダウンロードしてください。
+
+此脚本已不再可用。
+请从 https://github.com/STR-HK/hdl-stubs/ 下载最新版本的脚本。
+
+Este script ya no funciona.
+Por favor, descarga la última versión del script desde https://github.com/STR-HK/hdl-stubs/.
+
+Ce script n'est plus fonctionnel.
+Veuillez télécharger la dernière version du script depuis https://github.com/STR-HK/hdl-stubs/.
+
+Этот скрипт больше не работает.
+Пожалуйста, скачайте последнюю версию скрипта с https://github.com/STR-HK/hdl-stubs/.
+"""
+
+
 # coding: utf8
 # title: Add Booktoki.com
 # author: github.com/STR-HK/hdl-stubs
