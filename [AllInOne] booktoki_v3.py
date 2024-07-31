@@ -23,7 +23,7 @@ class Downloader_Booktoki(Downloader):
     type = "booktoki"
     URLS = [r"regex:booktoki[0-9]*\.com"]
     MAX_CORE = 4
-    icon = "https://booktoki.com/img/book/favicon-32x32.png"
+    icon = "https://manatoki.net/img/book/favicon-32x32.png"
 
     def read(self):
         soup = get_soup(self.url)
