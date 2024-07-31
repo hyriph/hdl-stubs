@@ -1,6 +1,9 @@
 # hdl-subs
 Get whatever sub-for-hdl you need from here!
 
+## util:freader
+- freader.hds 🚑️DEPRECATED
+
 ## site:booktoki
 - booktoki.py & booktoki.hds 🚑️DEPRECATED
 - booktoki_v2.hds 🚑️DEPRECATED
