@@ -1,7 +1,6 @@
 # hdl-subs
-Obtain whatever sub-for-hdl you need from here!
-
-
+[English](https://raw.githubusercontent.com/STR-HK/hdl-stubs/main/readme.md) | [Korean](https://raw.githubusercontent.com/STR-HK/hdl-stubs/main/나를읽어.md)
+Obtain whatever tool-for-hdl you need!
 
 ### site:hentaishark
 - hentaishark.hds 🚑️NOT-MAINTAINED
@@ -22,7 +21,7 @@ Obtain whatever sub-for-hdl you need from here!
 - mananumber.hds 🚑️NOT-MAINTAINED
 
 ## disclaimer
-Files that are no longer functional are preserved solely to maintain links to externally provided link. 
+Files that are no longer functional are preserved **solely** to maintain links to externally provided link. 
 Therefore, we write a warning comment at the top of each file in seven languages and redirect people to the latest version of the script.
 
 ## special-thx-to
