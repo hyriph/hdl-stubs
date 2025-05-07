@@ -1,6 +1,6 @@
 # hdl-stubs
 
-[English](https://github.com/STR-HK/hdl-stubs) | [한국어](https://github.com/STR-HK/hdl-stubs/blob/main/%EB%82%98%EB%A5%BC%EC%9D%BD%EC%96%B4.md)
+[English](https://github.com/hyriph/hdl-stubs) | [한국어](https://github.com/hyriph/hdl-stubs/blob/main/%EB%82%98%EB%A5%BC%EC%9D%BD%EC%96%B4.md)
 
 Obtain whatever tool-for-hdl you need!
 
@@ -25,7 +25,7 @@ Check updates about booktoki-all_v4.py at [Disscusions](https://github.com/hyrip
 ### site:blacktoon
 
 3. blacktoon_v3.hds 🚨DEPRECATED
-4. [blacktoon_v4.hds](https://raw.githubusercontent.com/STR-HK/hdl-stubs/main/blacktoon_v4.hds) ✅UP-TO-DATE
+4. [blacktoon_v4.hds](https://raw.githubusercontent.com/hyriph/hdl-stubs/main/blacktoon_v4.hds) ✅UP-TO-DATE
 
 ### util:freader
 
