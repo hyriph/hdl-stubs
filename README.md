@@ -9,7 +9,7 @@ Obtain whatever tool-for-hdl you need!
 1. booktoki.py & booktoki.hds 🚨DEPRECATED
 2. booktoki_v2.hds 🚨DEPRECATED
 3. [AllInOne] booktoki_v3.py 🚨DEPRECATED
-4. [booltoki-all_v4.py](https://raw.githubusercontent.com/hyriph/hdl-stubs/refs/heads/main/booktoki-all_v4.py) ✅UP-TO-DATE
+4. [booktoki-all_v4.py](https://raw.githubusercontent.com/hyriph/hdl-stubs/refs/heads/main/booktoki-all_v4.py) ✅UP-TO-DATE
 
 ### site:blacktoon
 3. blacktoon_v3.hds 🚨DEPRECATED
