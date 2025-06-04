@@ -1,6 +1,6 @@
 # coding: utf8
 # title: Add Booktoki.com
-# author: github.com/STR-HK/hdl-stubs
+# author: github.com/hyriph/hdl-stubs
 # comment: Created at 2023/10/23
 
 from io import BytesIO
