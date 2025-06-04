@@ -2,7 +2,6 @@
 # title: Add Blacktoon.com
 # author: STR.HK
 # comment: Updated at 12022/04/10
-from numpy import insert
 from utils import Soup, LazyUrl, Downloader, Session, clean_title
 import clf2
 import json
