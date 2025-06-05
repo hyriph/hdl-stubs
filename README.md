@@ -20,7 +20,7 @@ This is unofficial plugin for [Hitomi Downloader](https://github.com/KurtBestor/
 4. [booktoki-all_v4.py](https://raw.githubusercontent.com/hyriph/hdl-stubs/refs/heads/main/booktoki-all_v4.py) ✅UP-TO-DATE
 5. [booktoki-all_v4a.py](https://raw.githubusercontent.com/hyriph/hdl-stubs/refs/heads/main/booktoki-all_v4a.py) (Time Delay Ver) ✅UP-TO-DATE
 
-Check updates about booktoki-all_v4.py at [Disscusions](https://github.com/hyriph/hdl-stubs/discussions/8)!
+Check updates about booktoki-all_v4.py at [Discussions](https://github.com/hyriph/hdl-stubs/discussions/8)!
 
 ### site:blacktoon
 
@@ -49,7 +49,7 @@ Please issue with circumstances that make problems.
 
 - OS using (ex: Windows 10)
 - Link that makes problem (ex: https://booktoki468.com/novel/4521699)
-- Explane what happend (ex: New line acts abnormally)
+- Explain what happened (ex: New line acts abnormally)
 - Attach screenshot of problem
 
 ## special-thx-to

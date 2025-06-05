@@ -69,6 +69,9 @@ def compact_ranges(nums: List[int]) -> List[Union[int, List[int]]]:
         >>> compact_ranges([1, 2, 3, 7, 9, 10, 11, 20])
         [[1, 3], 7, [9, 11], 20]
     """
+    if not nums:
+        return []
+
     nums.sort()
     result: List[Union[int, List[int]]] = []
     start = prev = nums[0]
